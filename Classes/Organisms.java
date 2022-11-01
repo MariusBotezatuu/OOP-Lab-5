@@ -1,9 +1,10 @@
 package Classes;
 import java.util.Random;
 abstract class Organisms extends Entity{
-    protected int minHumidityRequired,minTempRequired,amount,evilness,maxHumidity,maxTemperature,intelligence;
+    protected int minHumidityRequired,minTempRequired,amount,maxHumidity,maxTemperature,evilness;
+    float intelligence;
 
-    public void setAttributes(int minHumidityRequired,int maxHumidity,int maxTemperature,int minTempRequired,int amount,int evilness,int intelligence){
+    public void setAttributes(int minHumidityRequired,int maxHumidity,int maxTemperature,int minTempRequired,int amount,int evilness,float intelligence){
         this.amount=amount;
         this.minHumidityRequired=minHumidityRequired;
         this.minTempRequired=minTempRequired;
@@ -15,6 +16,10 @@ abstract class Organisms extends Entity{
 
     public int getAmount(){
         return amount;
+    }
+
+    public int getEvilness(){
+        return evilness;
     }
 
     public void environmentAffects(){

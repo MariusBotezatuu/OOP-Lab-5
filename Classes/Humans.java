@@ -37,15 +37,39 @@ public class Humans extends Organisms{
             World.humidity=0;
             }
 
-    public void wars(int weaponamount,int weapondestruction){
-        if (amount>2)
-            amount-=0.001*evilness*amount*0.1+(weaponamount*weapondestruction); //kill each other
+    public int wars(int weaponamount,float weapondestruction){
+        if (amount>2&&evilness>0){
+            amount-=0.001*evilness*amount*0.1+0.01*(weaponamount*weapondestruction); //kill each other
+            intelligence-=0.0001*evilness*amount*0.001+0.0001*(weaponamount*weapondestruction)/intelligence;
+        }
+            return (int)(0.001*evilness*amount*0.1+0.01*(weaponamount*weapondestruction));
     }
 
     public void makeSoilFertile(){
         Ground.soilFertility+=0.0001*amount;
         if (Ground.soilFertility>=100)
             Ground.soilFertility=100;
+    }
+
+    public float getIntelligence(){
+        return intelligence;
+    }
+
+    public void becomeSmarter(){
+        intelligence+=0.001*amount;
+        if (Ground.waterAmount>=60&&intelligence>1000){
+            if (0.00001*amount*intelligence<=50)
+                Ground.waterAmount-=0.00001*amount*intelligence;
+            else Ground.waterAmount-=10;
+        }
+        if (World.temperature>=40&&intelligence>1000){
+            if (0.00001*amount*intelligence<=40)
+                World.temperature-=0.00001*amount*intelligence;
+            else World.temperature-=10;
+        }
+        if ((int)intelligence/1000>0&&evilness>0)
+            evilness=20-(int)intelligence/1000;
+
     }
     
 }

@@ -10,4 +10,9 @@ public class Weapons extends DetrimentalThings{
         return weaponAmount;
     }
 
+    public void reduceWeapons(int number){
+        if (weaponAmount-number>=0)
+            weaponAmount-=number;
+    }
+
 }

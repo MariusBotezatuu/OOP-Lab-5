@@ -1,4 +1,4 @@
 package Classes;
 public class Ground extends Entity{
-    public static float soilFertility,waterAmount;
+    public static float waterAmount,soilFertility;
 }

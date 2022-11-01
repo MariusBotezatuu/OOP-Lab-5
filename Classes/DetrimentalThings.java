@@ -1,12 +1,12 @@
 package Classes;
 abstract class DetrimentalThings extends Entity{
-    protected int destructionLevel;
+    protected float destructionLevel;
 
-    public void setDestructionLevel(int destructionLevel){
+    public void setDestructionLevel(float destructionLevel){
         this.destructionLevel=destructionLevel;
     }
 
-    public int getDestructionLevel(){
+    public float getDestructionLevel(){
         return destructionLevel;
     }
     
